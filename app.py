@@ -14,7 +14,7 @@ API_KEY = st.secrets["OPENAI_API_KEY"]
 llm = OpenAI(openai_api_key=API_KEY, temperature=0.9)
 
 ingredients_template = """
-I want you to act as a recipe database. Using the following ingredients: {ingredients}, generate an authentic recipe that can be made with these items. Please provide the recipe exactly, with measurements in metric units. Very important: You cannot include ingredients that have not been provided.
+I want you to act as a recipe database. Using the following ingredients: {ingredients}, generate an authentic recipe that can be made with these items. Please provide the recipe exactly, with measurements in metric units -- that means no mention of onces, pounds or inches. Very important: You cannot include ingredients that have not been provided.
 """
 prompt_template = PromptTemplate(
     template=ingredients_template,
