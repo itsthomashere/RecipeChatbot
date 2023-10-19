@@ -6,8 +6,27 @@ from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate 
 from langchain.chains import LLMChain, SequentialChain
 
+
+def customize_streamlit_ui() -> None:
+    st.set_page_config(
+        page_title="→ 🤖 → 🕸️ IdeaVault!",
+        page_icon="💡",
+        layout="centered"
+        )
+
+    hide_st_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                header {visibility: hidden;}
+                </style>
+                """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
+
 #load_dotenv()
 #API_KEY = os.environ['OPENAI_API_KEY']
+
+customize_streamlit_ui()
 
 API_KEY = st.secrets["OPENAI_API_KEY"]
 
